@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Data // Generates getters, setters for all fields
-@Builder // Generates a builder pattern [cite: 164]
-@AllArgsConstructor // Generates constructor with all arguments [cite: 165]
-@NoArgsConstructor // Generates default constructor [cite: 166]
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     private int UID;
     private String username;
     private String password;
     private boolean enabled;
 
-    @RestController // Indicates this class handles REST requests [cite: 177]
-    @RequestMapping("/api/v1/users") // Sets the base URL endpoint [cite: 182]
+    @RestController // Indicates this class handles REST requests
+    @RequestMapping("/api/v1/users") // Sets the base URL endpoint
     public static class UserController {
 
-        @GetMapping // Maps HTTP GET requests to this method [cite: 185]
+        @GetMapping // Maps HTTP GET requests to this method
         public User getUser() {
             // Build and return a static user for testing
             return builder()
